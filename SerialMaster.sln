@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerialMaster", "SerialMaster\SerialMaster.csproj", "{03532244-91E9-4DE3-A494-4E6E2E6B51A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03532244-91E9-4DE3-A494-4E6E2E6B51A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03532244-91E9-4DE3-A494-4E6E2E6B51A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03532244-91E9-4DE3-A494-4E6E2E6B51A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03532244-91E9-4DE3-A494-4E6E2E6B51A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC1B274E-F0FA-4D03-8BBE-D01D140145CF}
+	EndGlobalSection
+EndGlobal
