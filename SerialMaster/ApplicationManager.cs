@@ -30,7 +30,7 @@ namespace SerialMaster
             //Code to set up all the forms
             numberViewer = new NumberViewer();
 
-            sailing = new SailingInterface();
+            sailing = new SailingInterface(background.serial.SendData);
 
             linkForm(numberViewer, sailing);
 
@@ -48,6 +48,8 @@ namespace SerialMaster
             timer.Interval = (1 * 1000); // 10 secs
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
+
+            sailing.comUpdate += updateComPort;
         }
 
         //This is the code that gets called on a timer. 
@@ -62,6 +64,10 @@ namespace SerialMaster
         private void updateForms()
         {
             numberViewer.setLable1(background.number.GetNumber().ToString());
+
+            //Update Saling Interface
+            sailing.updateTextBox(background.serial.ReadData.TakeWork());
+
         }
 
         //Closing linker
@@ -95,6 +101,13 @@ namespace SerialMaster
                 background.stopBackground();
             }
         }
+
+
+        public void updateComPort(string comport, int baudRate)
+        {
+            background.serial.openPort(comport, baudRate);
+        }
+
     }
 
 }

@@ -75,6 +75,7 @@
     <Compile Include="Interface\SailingInterface.Designer.cs">
       <DependentUpon>SailingInterface.cs</DependentUpon>
     </Compile>
+    <Compile Include="SerialConnection.cs" />
     <Compile Include="Vector.cs" />
   </ItemGroup>
   <ItemGroup>

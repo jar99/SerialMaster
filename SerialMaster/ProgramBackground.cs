@@ -12,10 +12,15 @@ namespace SerialMaster
     {
         //This is my class that calculates numbers.
         public CalculateNumber number;
-        //private Thread numberThread;
+
+        public SerialConnection serial;
+        
+
 
         public ProgramBackground() {
             number = new CalculateNumber();
+
+            serial = new SerialConnection();
         }
 
         bool shouldRun;
@@ -29,9 +34,12 @@ namespace SerialMaster
             while (shouldRun)
             {
                 number.GeirateBetterNumbers();
+                serial.clearQue();
+
                 Thread.Sleep(delay);
             }
             //Poste closing code here.
+            serial.closePort();
 
         }
 
@@ -41,5 +49,6 @@ namespace SerialMaster
         {
             shouldRun = false;
         }
+
     }
 }

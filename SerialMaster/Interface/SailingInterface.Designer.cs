@@ -31,7 +31,6 @@
             this.topText = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bottomText = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.leftButton = new System.Windows.Forms.Button();
             this.rightButton = new System.Windows.Forms.Button();
             this.wintchBar1 = new System.Windows.Forms.ProgressBar();
@@ -41,6 +40,7 @@
             this.send = new System.Windows.Forms.Button();
             this.sheetIn = new System.Windows.Forms.Button();
             this.sheetOut = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // topText
@@ -71,15 +71,6 @@
             this.bottomText.Size = new System.Drawing.Size(60, 13);
             this.bottomText.TabIndex = 2;
             this.bottomText.Text = "bottomText";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(16, 30);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(413, 493);
-            this.textBox1.TabIndex = 3;
             // 
             // leftButton
             // 
@@ -115,6 +106,7 @@
             this.comport.Name = "comport";
             this.comport.Size = new System.Drawing.Size(80, 21);
             this.comport.TabIndex = 8;
+            this.comport.SelectedIndexChanged += new System.EventHandler(this.comport_SelectedIndexChanged);
             // 
             // bodrate
             // 
@@ -123,6 +115,7 @@
             this.bodrate.Name = "bodrate";
             this.bodrate.Size = new System.Drawing.Size(84, 21);
             this.bodrate.TabIndex = 9;
+            this.bodrate.SelectedIndexChanged += new System.EventHandler(this.bodrate_SelectedIndexChanged);
             // 
             // textBox2
             // 
@@ -139,6 +132,7 @@
             this.send.TabIndex = 11;
             this.send.Text = "Send";
             this.send.UseVisualStyleBackColor = true;
+            this.send.Click += new System.EventHandler(this.send_Click);
             // 
             // sheetIn
             // 
@@ -158,11 +152,20 @@
             this.sheetOut.Text = "Out";
             this.sheetOut.UseVisualStyleBackColor = true;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(16, 31);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(413, 485);
+            this.listBox1.TabIndex = 14;
+            // 
             // SailingInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 567);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.sheetOut);
             this.Controls.Add(this.sheetIn);
             this.Controls.Add(this.send);
@@ -172,12 +175,12 @@
             this.Controls.Add(this.wintchBar1);
             this.Controls.Add(this.rightButton);
             this.Controls.Add(this.leftButton);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.bottomText);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.topText);
             this.Name = "SailingInterface";
             this.Text = "SailingInterface";
+            this.Load += new System.EventHandler(this.SailingInterface_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,7 +191,6 @@
         private System.Windows.Forms.Label topText;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label bottomText;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button leftButton;
         private System.Windows.Forms.Button rightButton;
         private System.Windows.Forms.ProgressBar wintchBar1;
@@ -198,5 +200,6 @@
         private System.Windows.Forms.Button send;
         private System.Windows.Forms.Button sheetIn;
         private System.Windows.Forms.Button sheetOut;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

@@ -12,14 +12,21 @@ namespace SerialMaster
 {
     public partial class SailingInterface : Form
     {
+        public Action<string, int> comUpdate;
         PointLine rudder;
 
-        public SailingInterface()
+        DataStore<string> sendQue;
+
+        public SailingInterface(DataStore<string> comSendQue)
         {
+            sendQue = comSendQue;
+
             rudder = new PointLine(255, 400, 100);
 
             InitializeComponent();
+            updateComPortList();
         }
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -50,5 +57,60 @@ namespace SerialMaster
         {
 
         }
+
+        private void SailingInterface_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void send_Click(object sender, EventArgs e)
+        {
+                sendQue.Add(textBox2.Text.Trim());
+                textBox2.Clear();
+                updateComPortList();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateComPortList()
+        {
+            //Code here to setup ui
+            comport.Items.Clear();
+            bodrate.Items.Clear();
+            comport.Items.AddRange(SerialConnection.getPorts());
+            bodrate.Items.AddRange(SerialConnection.getBaudRates());
+        }
+
+        //Update comport
+        private void bodrate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateComport();
+        }
+
+        private void comport_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateComport();
+        }
+
+
+        public void updateComport()
+        {
+            if (comport.SelectedItem != null && bodrate.SelectedItem != null)
+            {
+                comUpdate(comport.SelectedItem.ToString(), SerialConnection.BaudRates[bodrate.SelectedIndex]);
+            }
+        }
+
+        public void updateTextBox(String[] items)
+        {
+            foreach (var item in items)
+            {
+                listBox1.Items.Add(item);
+            }
+        }
+
     }
 }
